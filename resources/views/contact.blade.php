@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Anna Robert</title>
-    <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+@section('title', 'About Us')
 
-</head>
+@section('content')
 
-<body>
-     <!-- Include Navigation -->
- @include('layouts.navigation')
-
-    <main>
         <section class="hero">
             <!-- Left Column: Hero Content -->
             <div class="hero-content">
@@ -61,13 +47,4 @@
                 </dotlottie-player>
             </div>
         </section>
-    </main>
-
-    <!-- Include Footer -->
-    @include('layouts.footer')
-
-    <script src="{{ asset('js/contact.js') }}"></script>
-    <script src="{{ asset('js/index.js') }}"></script>
-</body>
-
-</html>
+        @endsection
