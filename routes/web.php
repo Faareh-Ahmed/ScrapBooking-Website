@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +19,12 @@ Route::get('/about', function () {
 Route::get('/services', function () {
     return view('services');
 })->middleware(['auth', 'verified'])->name('services');
+
+// Using Controller:
+// Route::get('/services', [ProductController::class, 'index'])->name('products.index');
+// Route::post('/services', [ProductController::class, 'store'])->name('products.store');
+// Route::delete('/services/{index}', [ProductController::class, 'destroy'])->name('products.destroy');
+
 
 
 Route::get('/announcements', function () {

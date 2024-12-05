@@ -22,37 +22,37 @@
             <h2>Scrapbook Products</h2>
             <div class="grid-container">
                 <div class="product-box">
-                    <img src="../assets/product1.jpg" alt="Product 1" class="product-image">
+                    <img src="{{ asset('images/product1.jpg') }}" alt="Product 1" class="product-image">
                     <div class="overlay">
                         <div class="overlay-text">Stickers</div>
                     </div>
                 </div>
                 <div class="product-box">
-                    <img src="../assets/product2.jpg" alt="Product 2" class="product-image">
+                    <img src="{{ asset('images/product2.jpg') }}" alt="Product 2" class="product-image">
                     <div class="overlay">
                         <div class="overlay-text">Summer Themed Sticker</div>
                     </div>
                 </div>
                 <div class="product-box">
-                    <img src="../assets/product3.jpg" alt="Product 3" class="product-image">
+                    <img src="{{ asset('images/product3.jpg') }}" alt="Product 3" class="product-image">
                     <div class="overlay">
                         <div class="overlay-text">Journal Book Sticker</div>
                     </div>
                 </div>
                 <div class="product-box">
-                    <img src="../assets/product4.jpg" alt="Product 4" class="product-image">
+                    <img src="{{ asset('images/product5.jpg') }}" alt="Product 4" class="product-image">
                     <div class="overlay">
                         <div class="overlay-text">Flower Stickers</div>
                     </div>
                 </div>
                 <div class="product-box">
-                    <img src="../assets/product5.jpg" alt="Product 5" class="product-image">
+                    <img src="{{ asset('images/product5.jpg') }}" alt="Product 5" class="product-image">
                     <div class="overlay">
                         <div class="overlay-text">Origami Sticekr</div>
                     </div>
                 </div>
                 <div class="product-box">
-                    <img src="../assets/product7.jpg" alt="Product 6" class="product-image">
+                    <img src="{{ asset('images/product7.jpg') }}" alt="Product 6" class="product-image">
                     <div class="overlay">
                         <div class="overlay-text">Scrap Books</div>
                     </div>
@@ -79,19 +79,19 @@
             <h2>Scrapbook Courses</h2>
             <div class="grid-container">
                 <div class="course-box">
-                    <img src="../assets/courses1.jpg" alt="Course 1">
+                    <img src="{{ asset('images/courses1.jpg') }}" alt="Course 1">
                     <div class="overlay">
                         <div class="overlay-text">Art of Scrapbook Planning and Storytelling</div>
                     </div>
                 </div>
                 <div class="course-box">
-                    <img src="../assets/courses6.jpg" alt="Course 2">
+                    <img src="{{ asset('images/courses6.jpg') }}" alt="Course 2">
                     <div class="overlay">
                         <div class="overlay-text">Guide on Wedding Scrapbooking</div>
                     </div>
                 </div>
                 <div class="course-box">
-                    <img src="../assets/courses3.jpeg" alt="Course 3">
+                    <img src="{{ asset('images/courses3.jpeg') }}" alt="Course 3">
                     <div class="overlay">
                         <div class="overlay-text">Learn Creative Scrapbooking</div>
                     </div>
@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <div class="training-image">
-                    <img src="../assets/product7.jpg" alt="Training Session">
+                    <img src="{{ asset('images/product7.jpg') }}" alt="Training Session">
                 </div>
             </div>
         </section>
@@ -123,35 +123,35 @@
             <h2>Photography Sessions</h2>
             <div class="grid-container">
                 <div class="photo-box">
-                    <img src="../assets/photo10.jpg" alt="Photography 1">
+                    <img src="{{ asset('images/photo10.jpg') }}" alt="Photography 1">
 
                 </div>
                 <div class="photo-box">
-                    <img src="../assets/photo11.jpg" alt="Photography 2">
+                    <img src="{{ asset('images/photo11.jpg') }}" alt="Photography 2">
 
                 </div>
                 <div class="photo-box">
-                    <img src="../assets/photo12.jpg" alt="Photography 3">
+                    <img src="{{ asset('images/photo12.jpg') }}" alt="Photography 3">
 
                 </div>
                 <div class="photo-box">
-                    <img src="../assets/photo1.jpg" alt="Photography 4">
+                    <img src="{{ asset('images/photo1.jpg') }}" alt="Photography 4">
 
                 </div>
                 <div class="photo-box">
-                    <img src="../assets/photo5.jpg" alt="Photography 5">
+                    <img src="{{ asset('images/photo5.jpg') }}" alt="Photography 5">
 
                 </div>
                 <div class="photo-box">
-                    <img src="../assets/photo6.jpg" alt="Photography 6">
+                    <img src="{{ asset('images/photo6.jpg') }}" alt="Photography 6">
 
                 </div>
                 <div class="photo-box">
-                    <img src="../assets/photo7.jpg" alt="Photography 7">
+                    <img src="{{ asset('images/photo7.jpg') }}" alt="Photography 7">
 
                 </div>
                 <div class="photo-box">
-                    <img src="../assets/photo8.jpg" alt="Photography 8">
+                    <img src="{{ asset('images/photo8.jpg') }}" alt="Photography 8">
 
                 </div>
             </div>
@@ -187,8 +187,8 @@
     <!-- Include Footer -->
     @include('layouts.footer')
 
-    <script src="../js/index.js"></script>
-    <script src="../js/services.js"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
+    <script src="{{ asset('js/services.js') }}"></script>
 </body>
 
 </html>

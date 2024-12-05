@@ -40,7 +40,7 @@
             <div class="features-grid">
                 <div class="feature-box">
                     <div class="feature-image">
-                        <img class="featureimage" src="assets/photo3.jpg" alt="Karachi" />
+                        <img class="featureimage" src="{{ asset('images/photo3.jpg') }}" alt="Karachi" />
                     </div>
                     <div class="overlay">
                         <div class="overlay-text">
@@ -52,7 +52,7 @@
 
                 <div class="feature-box">
                     <div class="feature-image">
-                        <img class="featureimage" src="assets/scrap3.jpg" alt="Hunza" />
+                        <img class="featureimage" src="{{ asset('images/scrap3.jpg') }}"  alt="Hunza" />
                     </div>
                     <div class="overlay">
                         <div class="overlay-text">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="feature-box">
                     <div class="feature-image">
-                        <img class="featureimage" src="assets/product1.jpg" alt="Independence" />
+                        <img class="featureimage" src="{{ asset('images/product1.jpg') }}"  alt="Independence" />
                     </div>
                     <div class="overlay">
                         <div class="overlay-text">
@@ -74,7 +74,7 @@
                 </div>
                 <div class="feature-box">
                     <div class="feature-image">
-                        <img class="featureimage" src="assets/courses3.jpeg" alt="Independence" />
+                        <img class="featureimage" src="{{ asset('images/courses3.jpeg') }}" alt="Independence" />
                     </div>
                     <div class="overlay">
                         <div class="overlay-text">
@@ -101,32 +101,12 @@
             </div>
         </section>
     </main>
-    <!-- Footer -->
-    <footer>
-        <div class="footer">
-            <div class="row">
-                <a href="#"><img src="assets/insta.png" alt="Instagram" class="social-icon"></a>
-                <a href="#"><img src="assets/youtube.webp" alt="YouTube" class="social-icon"></a>
-                <a href="#"><img src="assets/twitter.png" alt="Twitter" class="social-icon"></a>
-            </div>
 
-            <div class="row">
-                <ul>
-                    <li><a href="pages/about.html">About Us</a></li>
-                    <li><a href="pages/contact.html">Contact us</a></li>
-                    <li><a href="pages/services.html">Our Services</a></li>
-                    <li><a href="pages/announcements.html">Announcements</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                </ul>
-            </div>
+    <!-- Include Footer -->
+    @include('layouts.footer')
 
-            <div class="row">
-                ANNA SCRAPBOOKING STUDIO © 2024 - All rights reserved
-            </div>
-        </div>
-    </footer>
+    <script src="{{ asset('js/index.js') }}"></script>
 
-    <script src="../js/index.js"></script>
 </body>
 
 </html>

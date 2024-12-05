@@ -16,7 +16,7 @@
 <body>
      <!-- Include Navigation -->
  @include('layouts.navigation')
- 
+
     <main>
         <section class="hero">
             <!-- Left Column: Hero Content -->
@@ -66,8 +66,8 @@
     <!-- Include Footer -->
     @include('layouts.footer')
 
-    <script src="../js/contact.js"></script>
-    <script src="../js/index.js"></script>
+    <script src="{{ asset('js/contact.js') }}"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
 </body>
 
 </html>

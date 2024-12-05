@@ -52,7 +52,7 @@
     <!-- Include Footer -->
     @include('layouts.footer')
 
-    <script src="../js/index.js"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
 </body>
 
 </html>
