@@ -1,61 +1,71 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    // Display the list of products
     public function index()
     {
-        $products = session()->get('products', []);
-        return view('services', compact('products'));
+        // Retrieve all products
+        $products = Product::all();
+        return response()->json($products);
     }
 
-    // Add a new product
+    public function create()
+    {
+        // Optional: Used if you need a form view for creating a product (for web apps)
+    }
+
     public function store(Request $request)
     {
-        // Validate input
-        $request->validate([
+        // Validate and create a new product
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'delivery_time' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'image' => 'nullable|string',
         ]);
 
-        // Store the image and get the path
-        $imagePath = $request->file('image')->store('products', 'public');
-
-        // Create new product
-        $product = [
-            'name' => $request->name,
-            'description' => $request->description,
-            'delivery_time' => $request->delivery_time,
-            'image_path' => $imagePath,
-        ];
-
-        // Retrieve current products from session or initialize if empty
-        $products = session()->get('products', []);
-        $products[] = $product;
-
-        // Save products to session
-        session()->put('products', $products);
-
-        return redirect()->route('products.index');
+        $product = Product::create($validated);
+        return response()->json($product, 201);
     }
 
-    // Delete a product
-    public function destroy($index)
+    public function show($id)
     {
-        $products = session()->get('products', []);
+        // Retrieve a single product
+        $product = Product::findOrFail($id);
+        return response()->json($product);
+    }
 
-        if (isset($products[$index])) {
-            unset($products[$index]);
-            $products = array_values($products); // Reindex array
-            session()->put('products', $products);
-        }
+    public function edit($id)
+    {
+        // Optional: Used if you need a form view for editing a product (for web apps)
+    }
 
-        return redirect()->route('products.index');
+    public function update(Request $request, $id)
+    {
+        // Validate and update an existing product
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'delivery_time' => 'required|string',
+            'image' => 'nullable|string',
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->update($validated);
+
+        return response()->json($product);
+    }
+
+    public function destroy($id)
+    {
+        // Delete a product
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return response()->json(['message' => 'Product deleted successfully']);
     }
 }
