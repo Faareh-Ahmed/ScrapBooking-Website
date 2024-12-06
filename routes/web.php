@@ -16,11 +16,17 @@ Route::get('/about', function () {
     return view('about');
 })->middleware(['auth', 'verified'])->name('about');
 
-Route::get('/services', function () {
-    return view('services');
-})->middleware(['auth', 'verified'])->name('services');
+// Route::get('/services', function () {
+//     return view('services');
+// })->middleware(['auth', 'verified'])->name('services');
 
 // Using Controller:
+
+Route::get('/services', [ProductController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('services');
+
+    Route::resource('products', ProductController::class)->middleware(['auth', 'verified']);
 
 // Route::get('/services', [ProductController::class, 'index'])->name('products.index');
 // Route::post('/services', [ProductController::class, 'store'])->name('products.store');

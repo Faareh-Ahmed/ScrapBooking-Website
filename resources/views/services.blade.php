@@ -9,8 +9,10 @@
     <div class="grid-container">
         @foreach ($products as $product)
         <div class="product-box">
-            <img src="{{ $product->image ?? asset('images/default.jpg') }}" alt="{{ $product->name }}" class="product-image">
-            <div class="overlay">
+        <img src="{{ $product->image ? 'data:image/jpeg;base64,' . base64_encode($product->image) : asset('images/default.jpg') }}" 
+    alt="{{ $product->name }}" 
+    class="product-image">
+        <div class="overlay">
                 <div class="overlay-text">
                     <p class="product-name">{{ $product->name }}</p>
                     <p class="product-description">{{ $product->description }}</p>
