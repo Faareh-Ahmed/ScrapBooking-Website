@@ -42,9 +42,12 @@
             </div>
 
             <div class="hero-image">
-                <dotlottie-player src="https://lottie.host/82a29b75-160b-48d3-97b6-f5808c180a0b/NXfMe8vuBb.json"
-                    autoplay loop style="width: 50%; height: 50%;">
+                <dotlottie-player src="https://lottie.host/b09eea33-874f-446b-a88a-405c21d2b53d/BcXf9Vls4Z.lottie"
+                     autoplay loop style="width: 50%; height: 50%;">
                 </dotlottie-player>
             </div>
         </section>
         @endsection
+        
+
+        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
