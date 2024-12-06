@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('delivery_time');
-            $table->string('image')->nullable(); // Assuming image is stored as a string (URL or path)
+            $table->binary('image')->nullable(); // Use binary for storing BLOB data
             $table->timestamps();
         });
     }

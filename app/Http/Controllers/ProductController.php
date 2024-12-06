@@ -10,7 +10,7 @@ class ProductController extends Controller
     {
         // Retrieve all products
         $products = Product::all();
-        return response()->json($products);
+        return view('services', compact('products'));
     }
 
     public function create()
@@ -25,10 +25,20 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'delivery_time' => 'required|string',
-            'image' => 'nullable|string',
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif', // Validate image file
         ]);
 
-        $product = Product::create($validated);
+        $product = new Product();
+        $product->name = $validated['name'];
+        $product->description = $validated['description'];
+        $product->delivery_time = $validated['delivery_time'];
+
+        if ($request->hasFile('image')) {
+            $product->image = file_get_contents($request->file('image')->getRealPath()); // Store the binary data
+        }
+
+        $product->save();
+
         return response()->json($product, 201);
     }
 
@@ -36,6 +46,10 @@ class ProductController extends Controller
     {
         // Retrieve a single product
         $product = Product::findOrFail($id);
+
+        // Convert binary image to a base64 string for API response (if needed)
+        $product->image = $product->image ? base64_encode($product->image) : null;
+
         return response()->json($product);
     }
 
@@ -51,11 +65,19 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'delivery_time' => 'required|string',
-            'image' => 'nullable|string',
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif', // Validate image file
         ]);
 
         $product = Product::findOrFail($id);
-        $product->update($validated);
+        $product->name = $validated['name'];
+        $product->description = $validated['description'];
+        $product->delivery_time = $validated['delivery_time'];
+
+        if ($request->hasFile('image')) {
+            $product->image = file_get_contents($request->file('image')->getRealPath()); // Update the binary data
+        }
+
+        $product->save();
 
         return response()->json($product);
     }

@@ -4,61 +4,45 @@
 
 @section('content')
 
-        <section class="products">
-            <h2>Scrapbook Products</h2>
-            <div class="grid-container">
-                <div class="product-box">
-                    <img src="{{ asset('images/product1.jpg') }}" alt="Product 1" class="product-image">
-                    <div class="overlay">
-                        <div class="overlay-text">Stickers</div>
-                    </div>
+<section class="products">
+    <h2>Scrapbook Products</h2>
+    <div class="grid-container">
+        @foreach ($products as $product)
+        <div class="product-box">
+            <img src="{{ $product->image ?? asset('images/default.jpg') }}" alt="{{ $product->name }}" class="product-image">
+            <div class="overlay">
+                <div class="overlay-text">
+                    <p class="product-name">{{ $product->name }}</p>
+                    <p class="product-description">{{ $product->description }}</p>
+                    <p class="product-delivery-time">Delivery Time: {{ $product->delivery_time }}</p>
                 </div>
-                <div class="product-box">
-                    <img src="{{ asset('images/product2.jpg') }}" alt="Product 2" class="product-image">
-                    <div class="overlay">
-                        <div class="overlay-text">Summer Themed Sticker</div>
-                    </div>
-                </div>
-                <div class="product-box">
-                    <img src="{{ asset('images/product3.jpg') }}" alt="Product 3" class="product-image">
-                    <div class="overlay">
-                        <div class="overlay-text">Journal Book Sticker</div>
-                    </div>
-                </div>
-                <div class="product-box">
-                    <img src="{{ asset('images/product5.jpg') }}" alt="Product 4" class="product-image">
-                    <div class="overlay">
-                        <div class="overlay-text">Flower Stickers</div>
-                    </div>
-                </div>
-                <div class="product-box">
-                    <img src="{{ asset('images/product5.jpg') }}" alt="Product 5" class="product-image">
-                    <div class="overlay">
-                        <div class="overlay-text">Origami Sticekr</div>
-                    </div>
-                </div>
-                <div class="product-box">
-                    <img src="{{ asset('images/product7.jpg') }}" alt="Product 6" class="product-image">
-                    <div class="overlay">
-                        <div class="overlay-text">Scrap Books</div>
-                    </div>
-                </div>
+                <button onclick="editProduct({{ $product->id }})" class="new-btn">Edit</button>
+                <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="new-btn">Delete</button>
+                </form>
             </div>
+        </div>
+        @endforeach
+    </div>
 
-            <button onclick="showAddProductForm()" id="add">Add New Product</button>
+    <button onclick="showAddProductForm()" id="add">Add New Product</button>
 
-            <!-- Add Product Form -->
-            <div id="add-product-form" style="display:none;">
-                <h3>Add New Product</h3>
-                <input type="text" id="product-name" placeholder="Product Name" required>
-                <input type="text" id="product-description" placeholder="Product Description" required>
-                <input type="text" id="delivery-time" placeholder="Delivery Time" required>
-                <input type="file" id="product-image" required>
-                <button onclick="addProduct()">Save Product</button>
-                <button onclick="hideAddProductForm()">Cancel</button>
-            </div>
-        </section>
-
+    <!-- Add Product Form -->
+    <div id="add-product-form" style="display:none;">
+        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <h3>Add New Product</h3>
+            <input type="text" name="name" placeholder="Product Name" required>
+            <input type="text" name="description" placeholder="Product Description" required>
+            <input type="text" name="delivery_time" placeholder="Delivery Time" required>
+            <input type="file" name="image">
+            <button type="submit">Save Product</button>
+            <button type="button" onclick="hideAddProductForm()">Cancel</button>
+        </form>
+    </div>
+</section>
 
         <!-- Courses Section -->
         <section class="courses">
