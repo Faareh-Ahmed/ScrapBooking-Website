@@ -607,6 +607,7 @@
     padding: 30px;
     border-radius: 8px;
     width: 400px;
+    height:800px;
     color: var(--main-text-color);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -695,6 +696,15 @@
     transform: translate(-50%, -50%) scale(0.95);
   }
   
+  #edit-product-form img#current-image {
+    width: 100%; /* Scale image to the width of its container */
+    max-height: 250px; /*Set a maximum height for the image*/
+    object-fit: cover; /* Ensures the image fits without distortion */
+    border-radius: 5px; /* Optional: rounded corners for a polished look */
+    margin: 0 auto; /* Center the image horizontally */
+    display: block; /* Ensures proper centering and layout */
+}
+
   /* Dropdown container */
   .color-picker-dropdown {
     position: relative;

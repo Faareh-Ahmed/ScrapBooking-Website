@@ -28,7 +28,7 @@
 
     <script src="{{ asset('js/index.js') }}"></script>
     <script src="{{ asset('js/contact.js') }}"></script>
-    <script src="{{ asset('js/services.js') }}"></script>
+    <!-- <script src="{{ asset('js/services.js') }}"></script> -->
     @stack('scripts')
 </body>
 

@@ -31,19 +31,7 @@
 
     <button onclick="showAddProductForm()" id="add">Add New Product</button>
 
-    <!-- Add Product Form -->
-    <div id="add-product-form" style="display:none;">
-        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <h3>Add New Product</h3>
-            <input type="text" name="name" placeholder="Product Name" required>
-            <input type="text" name="description" placeholder="Product Description" required>
-            <input type="text" name="delivery_time" placeholder="Delivery Time" required>
-            <input type="file" name="image">
-            <button type="submit">Save Product</button>
-            <button type="button" onclick="hideAddProductForm()">Cancel</button>
-        </form>
-    </div>
+    
 
     <!-- Edit Product Form -->
     <div id="edit-product-form" style="display:none;">
@@ -60,6 +48,20 @@
         <button type="button" class="form-btn cancel-btn" onclick="hideEditProductForm()">Cancel</button>
     </form>
 </div>
+
+<!-- Add Product Form -->
+<div id="add-product-form" style="display:none;">
+        <form id="addform" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <h3>Add New Product</h3>
+            <input type="text" name="name" id="add-name"  placeholder="Product Name" required>
+            <input type="text" name="description" id="add-description" placeholder="Product Description" required>
+            <input type="text" name="delivery_time" id="add-delivery_time" placeholder="Delivery Time" required>
+            <input type="file" name="image">
+            <button type="submit">Save Product</button>
+            <button type="button" onclick="hideAddProductForm()">Cancel</button>
+        </form>
+    </div>
 
 </section>
 
@@ -172,12 +174,16 @@
             </table>
         </section>
         <script>
-            function showAddProductForm() {
+
+function showAddProductForm() {
+    console.log("add product clicked");
     document.getElementById('add-product-form').style.display = 'block';
+    
 }
 
 function hideAddProductForm() {
     document.getElementById('add-product-form').style.display = 'none';
+    console.log("Hidden Add");
 }
 
 function showEditProductForm(id, name, description, delivery_time, imageUrl) {
