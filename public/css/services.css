@@ -522,6 +522,18 @@
     opacity: 1;
   }
   
+  .btn-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #delete-btn{
+    margin-top: 16px;
+    margin-left: 10px;
+  }
+  
   .overlay-text {
     flex: 1;
     display: flex;

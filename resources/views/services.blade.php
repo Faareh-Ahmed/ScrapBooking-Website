@@ -18,12 +18,14 @@
                     <p class="product-description">{{ $product->description }}</p>
                     <p class="product-delivery-time">Delivery Time: {{ $product->delivery_time }}</p>
                 </div>
-                <button onclick="showEditProductForm({{ $product->id }}, '{{ $product->name }}', '{{ $product->description }}', '{{ $product->delivery_time }}', '{{ asset($product->image) }}')" class="new-btn">Edit</button>
-                <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="new-btn">Delete</button>
-                </form>
+                <div class="btn-row">
+                    <button onclick="showEditProductForm({{ $product->id }}, '{{ $product->name }}', '{{ $product->description }}', '{{ $product->delivery_time }}', '{{ asset($product->image) }}')" class="new-btn">Edit</button>
+                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="new-btn" id="delete-btn">Delete</button>
+                    </form>
+                </div>
             </div>
         </div>
         @endforeach
@@ -97,7 +99,7 @@
             <p>Join our expert-led training sessions to enhance your scrapbooking skills. We offer both
                 in-person and online options.</p>
             <div class="cta-buttons">
-                <a href="contact.html" class="btn primary-btn">Contact Us</a>
+                <a href="{{ route('contact') }}" class="btn primary-btn">Contact Us</a>
             </div>
         </div>
         <div class="training-image">

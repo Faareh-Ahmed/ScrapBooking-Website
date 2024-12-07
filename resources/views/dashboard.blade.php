@@ -28,8 +28,8 @@
                 <h1>Welcome to Anna's Scrapbooking Studio</h1>
                 <p>Craft the moments that matter. Join our scrapbooking courses and shop for the best products.</p>
                 <div class="cta-buttons">
-                    <a href="pages/about.html" class="btn primary-btn">About Us</a>
-                    <a href="pages/services.html" class="btn secondary-btn">Shop Now</a>
+                    <a href="{{ route('about') }}" class="btn primary-btn">About Us</a>
+                    <a href="{{ route('services') }}" class="btn secondary-btn">Shop Now</a>
                 </div>
             </div>
         </section>
