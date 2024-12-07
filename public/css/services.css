@@ -565,7 +565,9 @@
   .new-btn:active {
     transform: scale(0.95);
   }
-  
+  #add-product-form{
+    z-index: 999;
+  }
   /* Responsive Styles */
   @media (max-width: 768px) {
     .grid-container {
@@ -601,7 +603,7 @@
       width: 100%; /* Ensure the image scales properly */
     }
   }
-  #add-product-form, #edit-product-form {
+  #add-product-form {
     background-color: #fff;
     opacity: 0.95;
     padding: 30px;
@@ -618,18 +620,18 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Increased spacing */
-  }
-  
-  #add-product-form,#edit-product-form h3 {
+    gap: 20px;
+}
+
+#add-product-form h3 {
     font-family: var(--secondary-font);
     font-size: 24px;
-    margin-bottom: 15px; /* Added more space */
+    margin-bottom: 15px;
     color: var(--accent-color);
-  }
-  
-  #add-product-form,#edit-product-form input[type="text"],
-  #add-product-form,#edit-product-form input[type="file"] {
+}
+
+#add-product-form input[type="text"],
+#add-product-form input[type="file"] {
     background-color: #fff;
     color: var(--main-text-color);
     border: 1px solid #3c3c3c;
@@ -639,16 +641,16 @@
     font-size: 14px;
     transition: border-color 0.2s ease;
     margin-bottom: 3px;
-  }
-  
-  #add-product-form,#edit-product-form input[type="text"]:focus,
-  #add-product-form,#edit-product-form input[type="file"]:focus {
+}
+
+#add-product-form input[type="text"]:focus,
+#add-product-form input[type="file"]:focus {
     outline: none;
     border-color: var(--accent-color);
-  }
-  
-  #add-product-form,#edit-product-form input[type="file"]::file-selector-button {
-    background-color: var(--accent-color); /* Matches color scheme */
+}
+
+#add-product-form input[type="file"]::file-selector-button {
+    background-color: var(--accent-color);
     color: var(--main-text-color);
     border: none;
     padding: 10px 15px;
@@ -656,13 +658,13 @@
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s ease, transform 0.1s ease;
-  }
-  
-  #add-product-form,#edit-product-form input[type="file"]::file-selector-button:hover {
-    background-color: var(--hover-color); /* Matches hover color */
-  }
-  
-  #add-product-form,#edit-product-form button {
+}
+
+#add-product-form input[type="file"]::file-selector-button:hover {
+    background-color: var(--hover-color);
+}
+
+#add-product-form button {
     background-color: var(--accent-color);
     color: #fff;
     border: none;
@@ -673,28 +675,27 @@
     font-size: 16px;
     transition: background-color 0.3s ease, transform 0.1s ease;
     margin-bottom: 2px;
-  }
-  
-  #add-product-form,#edit-product-form button:hover {
+}
+
+#add-product-form button:hover {
     background-color: var(--hover-color);
-  }
-  
-  #add-product-form,#edit-product-form button:active {
+}
+
+#add-product-form button:active {
     transform: scale(0.95);
-  }
-  
-  #add-product-form,#edit-product-form.show {
+}
+
+#add-product-form.show {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
-  }
-  
-  #add-product-form,#edit-product-form.hide {
+}
+
+#add-product-form.hide {
     opacity: 0;
     visibility: hidden;
     transform: translate(-50%, -50%) scale(0.95);
-  }
-  
+}
   /* Dropdown container */
   .color-picker-dropdown {
     position: relative;
@@ -716,7 +717,100 @@
     justify-content: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  
+  #edit-product-form {
+    background-color: #fff;
+    opacity: 0.95;
+    padding: 30px;
+    border-radius: 8px;
+    width: 400px;
+    color: var(--main-text-color);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#edit-product-form h3 {
+    font-family: var(--secondary-font);
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+#edit-product-form input[type="text"],
+#edit-product-form input[type="file"] {
+    background-color: #fff;
+    color: var(--main-text-color);
+    border: 1px solid #3c3c3c;
+    padding: 12px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+    margin-bottom: 3px;
+}
+
+#edit-product-form input[type="text"]:focus,
+#edit-product-form input[type="file"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+#edit-product-form input[type="file"]::file-selector-button {
+    background-color: var(--accent-color);
+    color: var(--main-text-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#edit-product-form input[type="file"]::file-selector-button:hover {
+    background-color: var(--hover-color);
+}
+
+#edit-product-form button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-bottom: 2px;
+}
+
+#edit-product-form button:hover {
+    background-color: var(--hover-color);
+}
+
+#edit-product-form button:active {
+    transform: scale(0.95);
+}
+
+#edit-product-form.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#edit-product-form.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
   /* Hover effect for button */
   #color-picker-btn:hover {
     background-color: #953553; /* Darker coral for hover */
