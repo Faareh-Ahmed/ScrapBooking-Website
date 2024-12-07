@@ -601,7 +601,7 @@
       width: 100%; /* Ensure the image scales properly */
     }
   }
-  #add-product-form {
+  #add-product-form, #edit-product-form {
     background-color: #fff;
     opacity: 0.95;
     padding: 30px;
@@ -621,15 +621,15 @@
     gap: 20px; /* Increased spacing */
   }
   
-  #add-product-form h3 {
+  #add-product-form,#edit-product-form h3 {
     font-family: var(--secondary-font);
     font-size: 24px;
     margin-bottom: 15px; /* Added more space */
     color: var(--accent-color);
   }
   
-  #add-product-form input[type="text"],
-  #add-product-form input[type="file"] {
+  #add-product-form,#edit-product-form input[type="text"],
+  #add-product-form,#edit-product-form input[type="file"] {
     background-color: #fff;
     color: var(--main-text-color);
     border: 1px solid #3c3c3c;
@@ -641,13 +641,13 @@
     margin-bottom: 3px;
   }
   
-  #add-product-form input[type="text"]:focus,
-  #add-product-form input[type="file"]:focus {
+  #add-product-form,#edit-product-form input[type="text"]:focus,
+  #add-product-form,#edit-product-form input[type="file"]:focus {
     outline: none;
     border-color: var(--accent-color);
   }
   
-  #add-product-form input[type="file"]::file-selector-button {
+  #add-product-form,#edit-product-form input[type="file"]::file-selector-button {
     background-color: var(--accent-color); /* Matches color scheme */
     color: var(--main-text-color);
     border: none;
@@ -658,11 +658,11 @@
     transition: background-color 0.3s ease, transform 0.1s ease;
   }
   
-  #add-product-form input[type="file"]::file-selector-button:hover {
+  #add-product-form,#edit-product-form input[type="file"]::file-selector-button:hover {
     background-color: var(--hover-color); /* Matches hover color */
   }
   
-  #add-product-form button {
+  #add-product-form,#edit-product-form button {
     background-color: var(--accent-color);
     color: #fff;
     border: none;
@@ -675,21 +675,21 @@
     margin-bottom: 2px;
   }
   
-  #add-product-form button:hover {
+  #add-product-form,#edit-product-form button:hover {
     background-color: var(--hover-color);
   }
   
-  #add-product-form button:active {
+  #add-product-form,#edit-product-form button:active {
     transform: scale(0.95);
   }
   
-  #add-product-form.show {
+  #add-product-form,#edit-product-form.show {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
   }
   
-  #add-product-form.hide {
+  #add-product-form,#edit-product-form.hide {
     opacity: 0;
     visibility: hidden;
     transform: translate(-50%, -50%) scale(0.95);
@@ -936,4 +936,4 @@
     box-shadow: 0px 0px 5px 2px #ff6666;
     outline: none;
   }
-  
+

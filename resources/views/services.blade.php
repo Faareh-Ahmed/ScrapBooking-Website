@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About Us')
+@section('title', 'Services')
 
 @section('content')
 
@@ -9,16 +9,16 @@
     <div class="grid-container">
         @foreach ($products as $product)
         <div class="product-box">
-        <img src="{{ $product->image ? 'data:image/jpeg;base64,' . base64_encode($product->image) : asset('images/default.jpg') }}" 
-    alt="{{ $product->name }}" 
-    class="product-image">
-        <div class="overlay">
+            <img src="{{ asset($product->image) }}"
+                 alt="{{ $product->name }}"
+                 class="product-image">
+            <div class="overlay">
                 <div class="overlay-text">
                     <p class="product-name">{{ $product->name }}</p>
                     <p class="product-description">{{ $product->description }}</p>
                     <p class="product-delivery-time">Delivery Time: {{ $product->delivery_time }}</p>
                 </div>
-                <button onclick="editProduct({{ $product->id }})" class="new-btn">Edit</button>
+                <button onclick="showEditProductForm({{ $product->id }}, '{{ $product->name }}', '{{ $product->description }}', '{{ $product->delivery_time }}', '{{ asset($product->image) }}')" class="new-btn">Edit</button>
                 <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
@@ -44,6 +44,23 @@
             <button type="button" onclick="hideAddProductForm()">Cancel</button>
         </form>
     </div>
+
+    <!-- Edit Product Form -->
+    <div id="edit-product-form" style="display:none;">
+    <form id="editForm" method="POST" enctype="multipart/form-data" class="product-form">
+        @csrf
+        @method('PUT')
+        <h3>Edit Product</h3>
+        <input type="text" name="name" id="edit-name" placeholder="Product Name" required>
+        <input type="text" name="description" id="edit-description" placeholder="Product Description" required>
+        <input type="text" name="delivery_time" id="edit-delivery_time" placeholder="Delivery Time" required>
+        <input type="file" name="image">
+        <img id="current-image" alt="Current Product Image" class="preview-image">
+        <button type="submit" class="form-btn">Save Changes</button>
+        <button type="button" class="form-btn cancel-btn" onclick="hideEditProductForm()">Cancel</button>
+    </form>
+</div>
+
 </section>
 
         <!-- Courses Section -->
@@ -154,4 +171,30 @@
                 </tr>
             </table>
         </section>
+        <script>
+            function showAddProductForm() {
+    document.getElementById('add-product-form').style.display = 'block';
+}
+
+function hideAddProductForm() {
+    document.getElementById('add-product-form').style.display = 'none';
+}
+
+function showEditProductForm(id, name, description, delivery_time, imageUrl) {
+    const form = document.getElementById('editForm');
+    form.action = `/products/${id}`; // Set the form action dynamically
+
+    document.getElementById('edit-name').value = name;
+    document.getElementById('edit-description').value = description;
+    document.getElementById('edit-delivery_time').value = delivery_time;
+    document.getElementById('current-image').src = imageUrl;
+
+    document.getElementById('edit-product-form').style.display = 'block';
+}
+
+function hideEditProductForm() {
+    document.getElementById('edit-product-form').style.display = 'none';
+}
+
+        </script>
         @endsection
