@@ -9,11 +9,11 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
 Route::get('/about', function () {
     return view('about');
-})->middleware(['auth', 'verified'])->name('about');
+})->name('about');
 
 // Route::get('/services', function () {
 //     return view('services');
@@ -35,7 +35,7 @@ Route::get('/services', [ProductController::class, 'index'])
 
 Route::get('/announcements', function () {
     return view('announcements');
-})->middleware(['auth', 'verified'])->name('announcements');
+})->name('announcements');
 
 
 Route::get('/contact', function () {
